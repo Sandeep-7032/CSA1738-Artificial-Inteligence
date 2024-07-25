@@ -1,0 +1,24 @@
+?- student_subjects(alice, SubjectCode, SubjectName).
+SubjectCode = math101,
+SubjectName = math .
+
+?- student_subjects(alice, SubjectCode, SubjectName).
+SubjectCode = math101,
+SubjectName = math 
+Unknown action: 1 (h for help)
+Action? .
+
+?- student_subject_teacher(alice, SubjectCode, SubjectName, Teacher).
+SubjectCode = math101,
+SubjectName = math,
+Teacher = mrs_smith 
+Unknown action:  (h for help)
+Action? .
+
+?- student_subject_teacher(alice, SubjectCode, SubjectName, Teacher).
+SubjectCode = math101,
+SubjectName = math,
+Teacher = mrs_smith .
+
+?- subject_students(math101, Student).
+Student = alice .
