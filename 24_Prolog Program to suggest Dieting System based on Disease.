@@ -1,0 +1,19 @@
+% Facts defining diseases and their recommended diets
+diet(diabetes, 'Low-sugar diet including whole grains, vegetables, lean proteins, and fruits in moderation').
+diet(hypertension, 'Low-sodium diet including fruits, vegetables, whole grains, and low-fat dairy').
+diet(celiac, 'Gluten-free diet excluding wheat, barley, and rye').
+diet(heart_disease, 'Low-fat diet including fruits, vegetables, whole grains, and lean proteins').
+diet(obesity, 'Balanced diet with controlled portion sizes and a variety of foods').
+diet(kidney_disease, 'Low-protein, low-sodium diet including fruits, vegetables, and controlled portions of dairy and grains').
+
+% Rules to suggest diets based on diseases
+suggest_diet(Disease, Diet) :-
+    diet(Disease, Diet).
+
+% Sample queries to test the program
+% ?- suggest_diet(diabetes, Diet).
+% ?- suggest_diet(hypertension, Diet).
+% ?- suggest_diet(celiac, Diet).
+% ?- suggest_diet(heart_disease, Diet).
+% ?- suggest_diet(obesity, Diet).
+% ?- suggest_diet(kidney_disease, Diet).
