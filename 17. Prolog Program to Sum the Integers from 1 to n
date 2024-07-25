@@ -1,0 +1,9 @@
+% Base case: sum of first 0 numbers is 0
+sum_numbers(0, 0).
+
+% Recursive case: sum of first N numbers is Sum if sum_numbers(N-1, SubSum) and Sum is SubSum + N
+sum_numbers(N, Sum) :-
+    N > 0,
+    N1 is N - 1,
+    sum_numbers(N1, SubSum),
+    Sum is SubSum + N.
