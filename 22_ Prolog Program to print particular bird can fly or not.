@@ -1,0 +1,20 @@
+% Facts about birds
+can_fly(eagle).
+can_fly(sparrow).
+can_fly(falcon).
+can_fly(hummingbird).
+
+% Facts about birds that cannot fly
+cannot_fly(penguin).
+cannot_fly(ostrich).
+cannot_fly(kakapo).
+cannot_fly(roadrunner).
+
+% Rules to check if a bird can fly
+can_bird_fly(Bird) :-
+    can_fly(Bird), !, % Use cut to avoid checking the other rule if this one succeeds
+    format('~w can fly.~n', [Bird]).
+
+can_bird_fly(Bird) :-
+    cannot_fly(Bird),
+    format('~w cannot fly.~n', [Bird]).
