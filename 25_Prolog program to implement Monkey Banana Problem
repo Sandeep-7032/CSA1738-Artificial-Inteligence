@@ -1,0 +1,37 @@
+% Define the initial state
+initial_state(state(at_door, on_floor, at_window, has_not)).
+
+% Define the goal state
+goal_state(state(_, _, _, has)).
+
+% Possible moves and their results
+
+% Grasp the banana
+move(state(middle, on_box, middle, has_not), grasp, state(middle, on_box, middle, has)).
+
+% Climb on the box
+move(state(L, on_floor, L, H), climb, state(L, on_box, L, H)).
+
+% Push the box from one location to another
+move(state(L1, on_floor, L1, H), push(L1, L2), state(L2, on_floor, L2, H)).
+
+% Walk from one location to another
+move(state(L1, on_floor, B, H), walk(L1, L2), state(L2, on_floor, B, H)).
+
+% Define how to achieve the goal from the initial state
+can_get(State, Moves) :-
+    goal_state(State),
+    Moves = [].
+
+can_get(State1, [Move|Moves]) :-
+    move(State1, Move, State2),
+    can_get(State2, Moves).
+
+% Query to find a solution and print the moves
+find_solution :-
+    initial_state(State),
+    can_get(State, Moves),
+    write('Moves: '), write(Moves), nl.
+
+% Sample query to run the program
+% ?- find_solution.
